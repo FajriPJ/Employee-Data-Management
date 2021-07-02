@@ -8,23 +8,14 @@ import { fade } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 import Button from "@material-ui/core/Button";
 import AddIcon from "@material-ui/icons/Add";
-import AppBar from "@material-ui/core/AppBar";
 import IconButton from "@material-ui/core/IconButton";
-import Badge from "@material-ui/core/Badge";
-import MenuItem from "@material-ui/core/MenuItem";
-import Menu from "@material-ui/core/Menu";
-import MenuIcon from "@material-ui/icons/Menu";
-import AccountCircle from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import MobileMenu from './mobile/MobileMenu';
+import DesktopMenu from './DesktopMenu';
 
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
   },
   title: {
     display: "none",
@@ -33,18 +24,17 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   search: {
-    position: "relative",
+    position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
-    "&:hover": {
+    '&:hover': {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
-    marginRight: theme.spacing(2),
     marginLeft: 0,
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(3),
-      width: "auto",
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(1),
+      width: 'auto',
     },
   },
   searchIcon: {
@@ -107,41 +97,27 @@ export default function Searching() {
   };
 
   const menuId = "primary-search-account-menu";
+
   const renderMenu = (
-    <Menu
+    <DesktopMenu
       anchorEl={anchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
+      menuId={menuId}
+      isMenuOpen={isMenuOpen}
+      handleMenuClose={handleMenuClose}
+    />
   );
 
   const mobileMenuId = "primary-search-account-menu-mobile";
 
   const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: "top", horizontal: "right" }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: "top", horizontal: "right" }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <AddIcon />
-        </IconButton>
-        <p>Add Personnel</p>
-      </MenuItem>
-    </Menu>
+    <MobileMenu
+      mobileMoreAnchorEl={mobileMoreAnchorEl}
+      mobileMenuId={mobileMenuId}
+      isMobileMenuOpen={isMobileMenuOpen}
+      handleMobileMenuClose={handleMobileMenuClose}
+    />
   );
+
   return (
     <>
       <div className={classes.root}>
@@ -165,10 +141,6 @@ export default function Searching() {
             </div>
             <div className={classes.grow} />
             <div className={classes.sectionDesktop}>
-              {/* <IconButton aria-label="show 4 new mails" color="inherit">
-                <AddIcon />
-              </IconButton>
-                <p>Add Personnel</p> */}
               <Button
                 aria-label="show 4 new mails" color="primary"
                 size="small"

@@ -1,18 +1,15 @@
 import React from "react";
 import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import randomColor from "../helpers/randomColor";
 import mergeName from "../helpers/mergeName";
 import { Typography } from "@material-ui/core";
+import HeaderCard from "./HeaderCard";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,31 +40,10 @@ export default function PersonnelCard(props) {
   const classes = useStyles();
 
   return (
-    <Grid item xs={12} sm={3}>
-      <Card>
-        <CardHeader
-          avatar={
-            <Avatar
-              aria-label="recipe"
-              style={{
-                backgroundColor: randomColor(),
-              }}
-            >
-              {props.name.first[0]}
-            </Avatar>
-          }
-          action={
-            <IconButton aria-label="settings">
-              <MoreVertIcon />
-            </IconButton>
-          }
-          title="Personnel ID"
-          disableTypography
-          subheader={
-            <Typography type="body2" style={{ color: "#3f51b5" }}>
-              {props.id.value || "N/A"}
-            </Typography>
-          }
+    <Grid item xs={12} sm={3} >
+      <Card >
+        <HeaderCard
+          {...props}
         />
         <Avatar
           alt="Remy Sharp"
@@ -96,7 +72,7 @@ export default function PersonnelCard(props) {
                 disableTypography
                 primary={
                   <Typography type="body2" style={{ color: "#3f51b5" }}>
-                    Birthday
+                    Phone Number
                   </Typography>
                 }
                 secondary={props.phone} />
