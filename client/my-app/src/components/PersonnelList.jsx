@@ -77,7 +77,7 @@ export default function PersonnelList() {
       ) : (
         <Grid container spacing={3}>
           {employees
-            ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            ?.slice(page  * rowsPerPage - rowsPerPage, page * rowsPerPage + rowsPerPage - rowsPerPage)
             ?.map((employee, index) => {
               return (
                 <MobilePersonnelCard {...employee} key={index}/>
