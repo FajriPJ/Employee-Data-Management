@@ -18,7 +18,7 @@ export default function PaginationComp(props) {
       color="primary" 
       component="div"
       page= {props.page}
-      count={props.employees?.length/props.pages-1}
+      count={props.employees?.length/props.pages}
       onChange={props.handleChangePage}
     />
   )

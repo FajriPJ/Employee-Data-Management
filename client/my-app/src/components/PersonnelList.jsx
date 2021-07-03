@@ -32,10 +32,10 @@ export default function PersonnelList() {
   const classes = useStyles();
   const dispatch = useDispatch();
   const { employees, loading } = useSelector((state) => state.employeeReducer);
-
+  
   const pages = [4]
-  const [page, setPage] = useState(0)
-  const [rowsPerPage, setRowsPerPage] = useState(pages[page])
+  const [page, setPage] = useState(1)
+  const [rowsPerPage, setRowsPerPage] = useState(4)
 
   const [width, setWidth] = useState(window.innerWidth);
   const breakPoint = 1450;
@@ -66,10 +66,11 @@ export default function PersonnelList() {
       {width > breakPoint ? (
         <Grid container spacing={3}>
           {employees
-            ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            ?.slice(page  * rowsPerPage - rowsPerPage, page * rowsPerPage + rowsPerPage - rowsPerPage)
             ?.map((employee, index) => {
+              console.log(employees?.length, 'length', index)
               return (
-                <PersonnelCard {...employee} key={index}/>
+                <PersonnelCard {...employee} key={index} />
               );
           })}
         </Grid>
@@ -86,6 +87,10 @@ export default function PersonnelList() {
       )}
 
       <PaginationComp
+        // showPerPage={showPerPage}
+        // onPaginationChange={onPaginationChange}
+        // total={employees.length}
+        // setPagination={setPagination.start}
         page={page}
         employees={employees}
         pages={pages}

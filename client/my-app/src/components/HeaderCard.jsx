@@ -7,7 +7,6 @@ import randomColor from "../helpers/randomColor";
 import { Typography } from "@material-ui/core";
 
 export default function HeaderCard(props) {
-
   return (
     <CardHeader
       avatar={
