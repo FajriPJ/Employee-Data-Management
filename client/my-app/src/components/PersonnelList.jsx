@@ -87,10 +87,6 @@ export default function PersonnelList() {
       )}
 
       <PaginationComp
-        // showPerPage={showPerPage}
-        // onPaginationChange={onPaginationChange}
-        // total={employees.length}
-        // setPagination={setPagination.start}
         page={page}
         employees={employees}
         pages={pages}

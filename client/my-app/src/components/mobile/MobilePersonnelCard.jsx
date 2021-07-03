@@ -42,6 +42,9 @@ const useStyles = makeStyles((theme) => ({
   grid: {
     padding: '0px',
     margin: '0px'
+  },
+  primary: {
+    color: "#3f51b5"
   }
 }));
 export default function MobilePersonnelCard(props) {
@@ -66,7 +69,7 @@ export default function MobilePersonnelCard(props) {
                   <ListItemText
                     disableTypography
                     primary={
-                      <Typography type="body2" style={{ color: "#3f51b5" }}>
+                      <Typography type="body2" className={classes.primary}>
                         Name
                       </Typography>
                     }
@@ -81,7 +84,7 @@ export default function MobilePersonnelCard(props) {
                   <ListItemText
                     disableTypography
                     primary={
-                      <Typography type="body2" style={{ color: "#3f51b5" }}>
+                      <Typography type="body2" className={classes.primary}>
                         Phone
                       </Typography>
                     }

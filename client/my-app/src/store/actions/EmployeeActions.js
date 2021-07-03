@@ -15,9 +15,8 @@ export function Loading() {
 
 export const GetDispatchEmployees = () => async (dispatch) => {
   try {
-    dispatch({type: 'LOADING_EMPLOYEES'})
+    dispatch(Loading())
     const res = await axios.get('https://randomuser.me/api/?results=28')
-    console.log(res.data.results.length, ',,,,,,,,,,,,,,,,,,,', typeof res.data.results)
     dispatch(GetEmployees(res.data.results))
   } catch (error) {
     console.log(error)

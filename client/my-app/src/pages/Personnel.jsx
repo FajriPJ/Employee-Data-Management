@@ -4,15 +4,9 @@ import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import PersonnelList from "../components/PersonnelList";
-import Search from "../components/Search";
+import ToolbarComp from "../components/ToolbarComp";
 import DrawerList from "../components/DrawerList";
 import AppBarComp from "../components/AppBarComp";
-import AppBar from "@material-ui/core/AppBar";
-import FaceIcon from "@material-ui/icons/Face";
-import MenuIcon from "@material-ui/icons/Menu";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
 
 const drawerWidth = 240;
 
@@ -105,7 +99,7 @@ export default function Personnel(props) {
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        <Search />
+        <ToolbarComp />
         <PersonnelList />
       </main>
     </div>

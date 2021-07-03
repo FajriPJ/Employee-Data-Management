@@ -34,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(2),
     },
   },
+  primary: {
+    color: "#3f51b5"
+  }
 }));
 
 export default function PersonnelCard(props) {
@@ -56,7 +59,7 @@ export default function PersonnelCard(props) {
               <ListItemText
                 disableTypography
                 primary={
-                  <Typography type="body2" style={{ color: "#3f51b5" }}>
+                  <Typography type="body2" className={classes.primary} >
                     Name
                   </Typography>
                 }
@@ -71,7 +74,7 @@ export default function PersonnelCard(props) {
               <ListItemText 
                 disableTypography
                 primary={
-                  <Typography type="body2" style={{ color: "#3f51b5" }}>
+                  <Typography type="body2" className={classes.primary} >
                     Phone Number
                   </Typography>
                 }
@@ -82,7 +85,7 @@ export default function PersonnelCard(props) {
                 // primary="Birthday"
                 disableTypography
                 primary={
-                  <Typography type="body2" style={{ color: "#3f51b5" }}>
+                  <Typography type="body2" className={classes.primary} >
                     Birthday
                   </Typography>
                 }
@@ -93,7 +96,7 @@ export default function PersonnelCard(props) {
               <ListItemText 
                 disableTypography
                 primary={
-                  <Typography type="body2" style={{ color: "#3f51b5" }}>
+                  <Typography type="body2" className={classes.primary} >
                     Email
                   </Typography>
                 } 
