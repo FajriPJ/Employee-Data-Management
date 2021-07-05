@@ -36,6 +36,12 @@ const useStyles = makeStyles((theme) => ({
   },
   primary: {
     color: "#3f51b5"
+  },
+  cardStyle: {
+    display: 'block',
+    width: 'auto',
+    transitionDuration: '0.3s',
+    height: '100%'
   }
 }));
 
@@ -44,7 +50,7 @@ export default function PersonnelCard(props) {
 
   return (
     <Grid item xs={12} sm={3} >
-      <Card >
+      <Card className={classes.cardStyle}>
         <HeaderCard
           {...props}
         />
@@ -94,6 +100,7 @@ export default function PersonnelCard(props) {
             </ListItem>
             <ListItem className={classes.list}>
               <ListItemText 
+               style={{ wordWrap: 'break-word' }}
                 disableTypography
                 primary={
                   <Typography type="body2" className={classes.primary} >

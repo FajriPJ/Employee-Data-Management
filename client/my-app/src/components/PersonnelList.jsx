@@ -38,12 +38,12 @@ export default function PersonnelList() {
   const [rowsPerPage, setRowsPerPage] = useState(4)
 
   const [width, setWidth] = useState(window.innerWidth);
-  const breakPoint = 1450;
+  const breakPoint = 1280;
+  console.log(width, '=========', breakPoint, '======', width > breakPoint)
 
   useEffect(() => {
     const handleWindowResize = () => setWidth(window.innerWidth);
     window.addEventListener("resize", handleWindowResize);
-     
     return () => window.removeEventListener("resize", handleWindowResize);
   },[]);
 
@@ -63,12 +63,11 @@ export default function PersonnelList() {
 
   return (
     <div className={classes.root}>
-      {width > breakPoint ? (
+      {width >= breakPoint ? (
         <Grid container spacing={3}>
           {employees
             ?.slice(page  * rowsPerPage - rowsPerPage, page * rowsPerPage + rowsPerPage - rowsPerPage)
             ?.map((employee, index) => {
-              console.log(employees?.length, 'length', index)
               return (
                 <PersonnelCard {...employee} key={index} />
               );
